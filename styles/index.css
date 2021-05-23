@@ -1,0 +1,39 @@
+.container{
+    display: grid;
+    grid-template-columns: 1fr;        
+    grid-template-areas: 
+    "nav" 
+    "header"
+    "rightContent"
+    "sideContent"
+    "footer";
+}
+.navBar {
+    grid-area: nav;
+}
+.header {
+    grid-area: header;
+}
+.rightContent {
+    grid-area: rightContent;
+}
+.sideContent {
+    grid-area: sideContent;
+}
+footer {
+    grid-area: footer;
+}
+
+@media only screen and (min-width: 660px) {
+    .container {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-areas: 
+    "nav nav "
+    "header header"
+    "article sideContent"
+    "footer footer";
+    
+}
+
+}
