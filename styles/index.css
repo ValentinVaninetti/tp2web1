@@ -1,0 +1,149 @@
+.container{
+       
+    display: grid;
+    grid-template-columns: 1fr;        
+    grid-template-areas: 
+    "nav" 
+    "header"
+    "rightContent"
+    "sideContent"
+    "footer";
+}
+.navBar{
+    grid-area: nav;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    list-style-type: none;
+    font-size: 18px; 
+}
+.header {
+    grid-area: header;
+    display: flex;
+    flex-direction: row;
+}
+.title {    
+    font-size: 80px;
+    text-align: center;  
+    text-transform: capitalize;
+    color: rgb(77, 11, 11);
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: goldenrod;
+} 
+.headerContent{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.rightContent {
+    grid-area: rightContent;
+    flex-direction: row;
+    justify-content: space-around;
+    font-family: 'lifecraft', sans-serif;
+    text-align: justify;    
+    text-decoration: double;
+    font-size: 18px;
+    margin-right: 25px;
+    margin-left: 25px;
+    word-spacing: 5pt;
+    line-height: 20pt;
+}
+.sideContent {
+    grid-area: sideContent;
+    flex-direction: row;
+    justify-content: space-around;
+    font-family: 'lifecraft', sans-serif;
+    text-align: justify;    
+    text-decoration: double;
+    font-size: 18px;
+    margin-right: 25px;
+    margin-left: 25px;
+    word-spacing: 5pt;
+    line-height: 20pt;
+}
+footer {
+    grid-area: footer;
+    display: flex;
+    flex-direction: row;
+}
+
+@media only screen and (min-width: 660px) {
+    .container {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-areas: 
+    "nav nav "
+    "header header"
+    "article sideContent"
+    "footer footer";
+    
+}
+
+}
+.login{
+    height: 300px;
+    max-height: 300px;
+    width: 200px;
+    max-width: 280px;
+    
+}
+
+.formInicio{
+    color: rgb(0, 0, 0);
+    text-transform: capitalize;
+    font-weight: bold;    
+    font-size: 30px;    
+    width: 13,1%;    
+    
+}
+.formImput{
+    width: 13,1%;
+}
+.imputCaptcha{
+    display: flex;
+    flex-direction: row;
+    width: 13,1%;
+}
+.formCaptcha{
+    width: 97px;
+    margin-top: 10px;
+}
+.boton-Captcha{
+    margin-top: 10px;
+    width: 36%;
+    height: 30px;
+    background-color: rgb(77, 11, 11);
+    font-family: 'lifecraft' , sans-serif;
+    color: goldenrod;
+}
+
+.formFeedback{
+    color: rgb(0, 0, 0);
+    text-transform: capitalize;
+    font-weight: bold;    
+    font-size: 30px;    
+    width: 13,1%;
+    
+}
+#verificationResult{
+    font-size: 30px;
+}
+#captcha{
+    font-size: 30px;
+}
+.imputInicio{
+  width: 100%;  
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  box-sizing: border-box;
+}  
+.imputfeed{
+  width: 100%;
+  padding: 22px 30px;
+  margin: 16px 0;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
