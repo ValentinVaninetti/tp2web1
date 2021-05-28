@@ -34,4 +34,14 @@ function iniciarPagina(){
           
     }
   }
+
+  /*let btn_navBar = document.querySelector("#btn-navBar");
+  btn_navBar.addEventListener("click" , mostrarNavbar);
+  
+  mostrarNavbar(event){
+    event.preventDefault();
+    let nav = document.getElementsByClassName(".navBar");
+
+
+  }*/
 }

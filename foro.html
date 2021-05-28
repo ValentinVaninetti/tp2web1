@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/index.css">
     <script src="./js/foro.js"> </script>
+    <script src="./js/index.js"> </script>
     <title>Foro</title>
 </head>
+
 <body class="foro">
     <header class="header">
         <nav class="navBar">
+            <button type="button" class="btn-navBar">0</button>
             <ul class="navItems">
                 <li>
                     <a href="index.html"><button class="boton-index">Inicio</button></a>
@@ -25,9 +29,9 @@
                     <a href="foro.html"><button class="boton-foro"> Foro</button></a>
                 </li>
             </ul>
-            
+
         </nav>
-       
+
         <div class="title">
             <h1>
                 Foro
@@ -46,46 +50,48 @@
         <div>
             <h2> Bienvenidos al foro</h2>
         </div>
-        <article class="article">            
-                <section class="leftContent">
-                    <table id="tableHead">
-                        <thead>
-                            <th>Nombre del personaje </th>
-                            <th>Clase</th>
-                            <th>Raza</th>
-                            <th>Especializacion</th> 
-                            <th>Nivel</th>                           
-                        </thead>
-                        <tbody id="table" class="table">
-                            
-                        </tbody>
-                    </table>
-                    
-                </section>
-                <section class="tablaForo">
-                    <form action="formulario">
-                        <label for="nombre"><input id="nombre"  placeholder="Nombre del personaje" type="text" value=""/></label>                        
-                        <label for="clase"><input id="clase" placeholder="Clase del personaje" type="text" value=""/></label>                        
-                        <label for="raza"><input id="raza" placeholder="Raza del personaje" type="text" value=""/></label>
-                        
-                        <label for="level" > <input id="lvl" placeholder="lvl" type="number"></label>
-                        <label for="especializacion"> </label>
-                        <select name="especializacion" id="especializacion">
-                            <option value=""></option>
-                            <option value="Dps">Dps</option>
-                            <option value="Tank">Tank</option>
-                            <option value="Healer">Healer</option>
-                        </select>
-                    </form>
+        <article class="article">
+            <section class="leftContent">
+                <table id="tableHead">
+                    <thead>
+                        <th>Nombre del personaje </th>
+                        <th>Clase</th>
+                        <th>Raza</th>
+                        <th>Especializacion</th>
+                        <th>Nivel</th>
+                    </thead>
+                    <tbody id="table" class="table">
 
-                    <button type="button" id="btn-agregar">Agregar</button>
-                    <button type="button" id="btn-borrar" class="botonAdmin">Borrar</button>
-                    <button type="button" id="btn-random" class="botonAdmin">AgregarRandom</button>
-                </section>     
-        
-        
-        
-            
+                    </tbody>
+                </table>
+
+            </section>
+            <section class="tablaForo">
+                <form action="formulario">
+                    <label for="nombre"><input id="nombre" placeholder="Nombre del personaje" type="text"
+                            value="" /></label>
+                    <label for="clase"><input id="clase" placeholder="Clase del personaje" type="text"
+                            value="" /></label>
+                    <label for="raza"><input id="raza" placeholder="Raza del personaje" type="text" value="" /></label>
+
+                    <label for="level"> <input id="lvl" placeholder="lvl" type="number"></label>
+                    <label for="especializacion"> </label>
+                    <select name="especializacion" id="especializacion">
+                        <option value=""></option>
+                        <option value="Dps">Dps</option>
+                        <option value="Tank">Tank</option>
+                        <option value="Healer">Healer</option>
+                    </select>
+                </form>
+
+                <button type="button" id="btn-agregar">Agregar</button>
+                <button type="button" id="btn-borrar" class="botonAdmin">Borrar</button>
+                <button type="button" id="btn-random" class="botonAdmin">AgregarRandom</button>
+            </section>
+
+
+
+
         </article>
 
     </div>
@@ -99,11 +105,12 @@
             <li class="footer-item">Contact Us</li>
             <li class="footer-item">About</li>
             <li class="footer-item">Help!</li>
-        </ul>     
+        </ul>
 
     </footer>
-    
-    
-       
+
+
+
 </body>
+
 </html>
