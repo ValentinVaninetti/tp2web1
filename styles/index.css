@@ -1,21 +1,18 @@
-.header, .content , .footer{
-    display: grid;
-    grid-template-columns: 1;        
-    
-}
 .index, .recomendaciones{
     background-image: url("../images/indexreco.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
+    
 }
 .historia{
     background-image: url("../images/historia.jpg");    
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    background-attachment: fixed;    
+    background-attachment: fixed;  
+    
 }
 .foro {   
     background-image: url("../images/foro.jpg");    
@@ -26,24 +23,60 @@
 
 }
 .index, .recomendaciones , .historia , .foro{
-    background-color: brown;
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: 4;
 }
 .indexText, .sideContent{
     text-align: justify;
 }
-.headerIndex {
+.headerIndex, .header{
+    justify-content: center;
     display: grid;
-    grid-template-rows: 2fr 2fr 4fr 2fr;
+    grid-template-columns: 1;
+    grid-template-rows: 4;    
 }
-.navBar {      
-    grid-area: 1;     
+.botonMenu{       
+    display: flex; 
+    flex-direction: row; 
+    justify-content: center;
+    max-height: 20px;
+    height: 18px;
+    grid-area: 2/1; 
 
 }
-.boton-navBar{
-    display: block;
+.button-NavBar{
+    background-color: darkorange;
+    color: rgb(2, 36, 11);
+    border-radius: 5px;
+    font-size: 12px;    
+}
+.navBar{
+    grid-area: 3/1;
+}
+.title{
+    display: flex;
+    justify-content: center;
+    grid-area: 1/1;
+    width: 100%;
+}
+h1{
+    font-size: 80px;    
+    text-transform: capitalize;
+    color: rgb(77, 11, 11);
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: goldenrod;
+}
+.login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    grid-area: 4/1;
 }
 .navItems{
+    min-width: 100%;
     display: none;
+    padding: 0px;
 }
 .showNav{
     display: flex;
@@ -78,13 +111,8 @@
     border-radius: 2px;
     box-sizing: border-box;
   }  
-.formFeedback {    
-    grid-area: 4;    
-    height: 50px;
-    max-height: 70px;
-    width: 100px;
-    max-width: 40px;
-}
+
+
 th,tr,td {
     border: 1px solid black;
     font-family: 'lifecraft' , sans-serif;
@@ -126,6 +154,20 @@ th,tr,td {
     max-height: 100%;
     opacity: 0.8;
 }
+.footer{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    border-style: double;
+    border-color: goldenrod;
+    opacity: 0.5;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style: none;
+    font-family: 'lifecraft' , sans-serif;
+    color: whitesmoke;
+}
 .footer-left {
     list-style: none;
     margin-left: 10px;
@@ -141,9 +183,20 @@ p{
     font-size: 20px;
     text-decoration: black;
     color: black;
+    font-weight: bold;
 }
 
 @media only screen and (min-width: 600px) { 
+.index, .recomendaciones, .historia, .foro {
+    display: grid;
+    grid-template-areas:
+        "header"
+        "content"
+        "footer" ;
+}
+header { grid-area: header; }
+.content { grid-area: content;}
+footer { grid-area: footer; }
 
 .index, .recomendaciones{
     background-image: url("../images/indexreco.jpg");
@@ -170,10 +223,14 @@ p{
 
 }
 
-.header, .headerIndex{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 2fr ;
+.headerIndex {
+    display: flex;
+    flex-direction: row;
+}
+.header{
+    display: flex;
+    flex-direction: row;
+
 }
 
 .navBar { 
@@ -188,7 +245,8 @@ p{
     position: fixed; 
     left: 0%;
     right: 0%;
-    top: 0%;     
+    top: 0%;    
+    grid-area: 1/1; 
         
 }
 .button-NavBar{
@@ -218,38 +276,36 @@ p{
 }   
 
 .title {  
-    grid-area: 2/2;           
-    font-size: 50px;         
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    font-size: 80px;         
     text-transform: capitalize;
     color: rgb(77, 11, 11);
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: goldenrod;
 }
+
 h2{
     font-size: 50px;
     
 }         
 
-.login{  
-    grid-area: 2/1;       
-    height: 300px;
+.login{ 
+      
+    margin-top: 90px;
+    margin-bottom: 80px; 
+    display: flex;
+    flex-direction: column;
     max-height: 300px;
     width: 200px;
     max-width: 280px;
     
 }
 
-.formInicio{    
-    color: rgb(0, 0, 0);
-    text-transform: capitalize;
-    font-weight: bold;    
-    font-size: 30px;      
-    
-}
-
 .imputCaptcha{
-    display: flex;
-    flex-direction: row;    
+   display: flex;
+   flex-direction: row;
 }
 
 .formCaptcha{
@@ -266,46 +322,24 @@ h2{
     color: goldenrod;
 }
 
-.formFeedback{  
-    grid-area: 2/3;     
-    color: rgb(0, 0, 0);
-    margin-left: 50%;
-    text-transform: capitalize;
-    font-weight: bold;    
-    font-size: 30px;    
-    height: 300px;
-    max-height: 300px;
-    width: 200px;
-    max-width: 280px;
-    
-}
-
 #verificationResult{
-    font-size: 30px;
+    font-size: 20px;
 }
 
 #captcha{
     display: flex;
     flex-direction: row;
     width: 13,1%;
-    font-size: 30px;
+    font-size: 20px;
 }
 .imputInicio{
-width: 100%;  
-display: block;
-border: 1px solid #ccc;
-border-radius: 2px;
-box-sizing: border-box;
-}  
-.imputfeed{
-width: 100%;
-padding: 22px 30px;
-margin: 16px 0;
-display: block;
-border: 1px solid #ccc;
-border-radius: 4px;
-box-sizing: border-box;
-}
+    width: 100%;  
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    box-sizing: border-box;
+} 
+
 .indexText, .sideContent{
     text-align: justify;
     margin : 15px;
@@ -318,11 +352,9 @@ box-sizing: border-box;
     height: 30px;
 }
 
-    
 th,tr,td {
     border: 1px solid black;
-    font-family: 'lifecraft' , sans-serif;
-    
+    font-family: 'lifecraft' , sans-serif;    
 }
 
 .tableContent{
@@ -347,8 +379,7 @@ th,tr,td {
 .imagen-murloc{
     margin-top: 20px;
     width: 10%;
-    height: 10%
-    
+    height: 10%   
     
 }
 .murloc{
@@ -369,6 +400,8 @@ th,tr,td {
     list-style: none;
     font-family: 'lifecraft' , sans-serif;
     color: whitesmoke;
+    
+    
 }
 .footer-left {
     list-style: none;

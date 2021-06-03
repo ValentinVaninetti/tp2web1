@@ -12,10 +12,17 @@
 </head>
 
 <body class="index">
-
     <header class="headerIndex">
-        <div class="navBar" id="navBar"> 
-            <button type="button" class="button-NavBar" id="button-navBar">nav</button>               
+        <div class="title">
+              
+            <h1>
+                Welcome
+            </h1>
+        </div>
+        <div class="botonMenu">
+            <button type="button" class="button-NavBar" id="button-navBar">Menú</button> 
+        </div>      
+        <div class="navBar" id="navBar">                         
             <nav>            
                 <ul class="navItems" id="navItems">
                     <li>
@@ -32,50 +39,34 @@
                     </li>
                 </ul>
             </nav>
-        </div>
+        </div>         
 
         
-
-        <div class="title">
-            <h1>
-                Welcome
-            </h1>
-        </div>
-
         <div class="login">
             <div class="formInicio">
                 <form class="formularios">
-                    usuario: <input class="formImput" placeholder="user name" class="imputInicio" type="text"
+                    <p><span>User Name</span></p>
+                    <input class="formImput" placeholder="User name" class="imputInicio" type="text"
                         name="usuario" value="" />
-                    password: <input class="formImput" placeholder="password" class="imputInicio" type="password"
+                    <p><span>Password</span></p>
+                    <input class="formImput" placeholder="Password" class="imputInicio" type="password"
                         name="password" value="" />
                 </form>
             </div>
             <div class="divCaptcha">
                 <div class="imputCaptcha">
                     <input class="formCaptcha" id="input_captcha" type="text" placeholder="captcha">
-                    <button class="boton-Captcha" id="generateCaptcha_btn" type="button">Generate</button>
                 </div>
                 <h3 type="text" id="captcha"></h3>
-
+                
                 <div class="verification">
                     <h3 type="text" id="verificationResult"></h3>
                 </div>
-
+                
+                <button class="boton-Captcha" id="generateCaptcha_btn" type="button">Generate</button>
                 <button class="boton-verify" id="btn_verify_captcha" type="button">Enviar</button>
             </div>
-        </div>
-
-        <div class="formFeedback">
-            feedback: <textarea class="imputfeed" type="text" name="feed" value=""></textarea>
-            <button class="boton-submit">
-                Submit
-            </button>
-        </div>
-
-
-
-
+        </div>        
 
 
     </header>
