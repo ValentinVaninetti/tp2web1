@@ -46,7 +46,7 @@ function iniciarPagina() {
     }
 
 
-    document.querySelector("#btn-agregar").addEventListener("click", agregar);
+  document.querySelector("#btn-agregar").addEventListener("click", agregar);
     function agregar(event) {
         event.preventDefault();
 
@@ -62,6 +62,30 @@ function iniciarPagina() {
 
 
     }
+    /*let form = document.querySelector ("#form");
+    form.addEventListener ("submit", agregar);
+
+    function agregar (e) {
+        event.preventDefault ();
+
+        let formData = new FormData (form);}        
+
+        let nombre = formData.get ('#nombre').value;
+        let clase = formData.get ('#clase').value;
+        let raza = formData.get ('#raza').value;
+        let especializacion = formData.get ('#especializacion').value;
+        let level = formData.get ('#lvl').value;
+
+        console.log (nombre,clase,raza);
+        userTable.push(formData);
+        mostrarTabla();
+
+    }*/
+
+
+
+
+
 
     document.querySelector("#btn-borrar").addEventListener("click", limpiarTodo);
     function limpiarTodo(event) {
@@ -140,25 +164,25 @@ function iniciarPagina() {
         }
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

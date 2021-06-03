@@ -8,26 +8,21 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    background-attachment: fixed;  
-        
-    
-
+    background-attachment: fixed;
 }
 .historia{
     background-image: url("../images/historia.jpg");    
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    background-attachment: fixed;
-    
+    background-attachment: fixed;    
 }
 .foro {   
     background-image: url("../images/foro.jpg");    
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    background-attachment: fixed; 
-   
+    background-attachment: fixed;  
 
 }
 .index, .recomendaciones , .historia , .foro{
@@ -40,45 +35,35 @@
     display: grid;
     grid-template-rows: 2fr 2fr 4fr 2fr;
 }
-.navBar {
-    grid-area: 2; 
-    
+.navBar {      
+    grid-area: 1;     
 
 }
-.btn-navBar{
-    width: 20px;
-    height: 20px;
+.boton-navBar{
+    display: block;
+}
+.navItems{
+    display: none;
+}
+.showNav{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
 }
 
-.boton-index ,.boton-recomendaciones{
-    background-color: rgb(77, 11, 11);
+.boton-index ,.boton-recomendaciones, .boton-foro , .boton-historia{
     font-size: 20px;
     width: 200px;            
     font-family: 'lifecraft' , sans-serif;
     color: goldenrod;    
 }
+.boton-index ,.boton-recomendaciones{
+    background-color: rgb(77, 11, 11);
+    width: 100%;
+}
 .boton-foro , .boton-historia{
     background-color: rgb(33,33,155);
-    font-size: 20px;
-    width: 200px;            
-    font-family: 'lifecraft' , sans-serif;  
-    color: goldenrod;  
-}  
-.title {
-    grid-area: 1;
-    text-align: center;
-    font-size: 30px;
-    text-transform: capitalize;
-    color: rgb(77, 11, 11);
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: goldenrod;
-}
-.login {
-    grid-area: 3;
-    height: 100px;
-    max-height: 100px;
-    width: 100px;
-    max-width: 40px;
+    width: 100%;
 }
 .formInicio{    
     color: rgb(0, 0, 0);
@@ -100,17 +85,62 @@
     width: 100px;
     max-width: 40px;
 }
+th,tr,td {
+    border: 1px solid black;
+    font-family: 'lifecraft' , sans-serif;
+    
+}
+.hordetable{
+    background-color: rgba(155, 20, 20, 0.747); 
+    width: 50%;   
+} 
+.alliancetable{
+    background-color: rgb(33, 33, 155);   
+    width: 50%;
+}
+.pandaTable{
+    background-color: white;
+    width: 100%;
+    margin-bottom: 60px;    
+}
+.tableHead,.table{
+    background-color: white;
+}
+.tablaResaltada td{
+    background-color: goldenrod;
+}
+.botonAdmin{
+    display: none;
+}
+.botonesLocos {
+    display: ruby;
+}
 .imagen-murloc{
     margin-top: 20px;
     width: 10%;
-    height: 10%
-    
+    height: 10%   
     
 }
 .murloc{
     max-width: 100%;
     max-height: 100%;
     opacity: 0.8;
+}
+.footer-left {
+    list-style: none;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: row;
+    
+}
+.footer-right{
+    list-style: none;
+    margin-right: 30px;
+}
+p{
+    font-size: 20px;
+    text-decoration: black;
+    color: black;
 }
 
 @media only screen and (min-width: 600px) { 
@@ -147,6 +177,7 @@
 }
 
 .navBar { 
+    display: block;    
     width: 100%;
     height: 80px;
     background-color:black;
@@ -157,13 +188,14 @@
     position: fixed; 
     left: 0%;
     right: 0%;
-    top: 0%; 
+    top: 0%;     
         
 }
-.btn-navBar{
+.button-NavBar{
     display: none;
 }
-.navItems {
+
+.navItems {     
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -172,21 +204,17 @@
 
 }    
 
-.boton-index ,.boton-recomendaciones{
-    background-color: rgb(77, 11, 11);
+.boton-index ,.boton-recomendaciones, .boton-foro , .boton-historia{
     font-size: 20px;
-    width: 200px;
-    padding: 10px;        
+    width: 200px;           
     font-family: 'lifecraft' , sans-serif;
     color: goldenrod;    
 }
+.boton-index ,.boton-recomendaciones{
+    background-color: rgb(77, 11, 11);
+}
 .boton-foro , .boton-historia{
     background-color: rgb(33,33,155);
-    font-size: 20px;
-    width: 200px;
-    padding: 10px;        
-    font-family: 'lifecraft' , sans-serif;  
-    color: goldenrod;  
 }   
 
 .title {  
@@ -196,6 +224,10 @@
     color: rgb(77, 11, 11);
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: goldenrod;
+}
+h2{
+    font-size: 50px;
+    
 }         
 
 .login{  
@@ -311,6 +343,7 @@ th,tr,td {
     width: 100%;
     margin-bottom: 60px;    
 }
+
 .imagen-murloc{
     margin-top: 20px;
     width: 10%;
@@ -352,7 +385,12 @@ th,tr,td {
 .footer-item {
     margin-left: 20px;
 }
-.tablaResaltada{
+
+.tableHead,.table{
+    background-color: white;
+    
+}
+.tablaResaltada td{
     background-color: goldenrod;
 }
 .botonAdmin{

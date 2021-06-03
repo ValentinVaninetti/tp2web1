@@ -7,30 +7,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/index.css">
     <script src="./js/foro.js"> </script>
-    <script src="./js/index.js"> </script>
+    <script src="./js/index.js"></script>
+  
     <title>Foro</title>
 </head>
 
 <body class="foro">
-    <header class="header">
-        <nav class="navBar">
-            <button type="button" class="btn-navBar">0</button>
-            <ul class="navItems">
-                <li>
-                    <a href="index.html"><button class="boton-index">Inicio</button></a>
-                </li>
-                <li>
-                    <a href="historia.html"><button class="boton-historia">Historia</button></a>
-                </li>
-                <li>
-                    <a href="recomendaciones.html"><button class="boton-recomendaciones">Recomendaciones</button></a>
-                </li>
-                <li>
-                    <a href="foro.html"><button class="boton-foro"> Foro</button></a>
-                </li>
-            </ul>
-
-        </nav>
+    <header>
+        <div class="navBar" id="navBar"> 
+            <button type="button" class="button-NavBar" id="button-navBar">nav</button>               
+            <nav>            
+                <ul class="navItems" id="navItems">
+                    <li>
+                        <a href="index.html"><button class="boton-index">Inicio</button></a>
+                    </li>
+                    <li>
+                        <a href="historia.html"><button class="boton-historia">Historia</button></a>
+                    </li>
+                    <li>
+                        <a href="recomendaciones.html"><button class="boton-recomendaciones">Recomendaciones</button></a>
+                    </li>
+                    <li>
+                        <a href="foro.html"><button class="boton-foro"> Foro</button></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
 
         <div class="title">
             <h1>
@@ -52,8 +54,8 @@
         </div>
         <article class="article">
             <section class="leftContent">
-                <table id="tableHead">
-                    <thead>
+                <table class="tablaForo">
+                    <thead class="tableHead" id="tableHead">
                         <th>Nombre del personaje </th>
                         <th>Clase</th>
                         <th>Raza</th>
@@ -67,30 +69,27 @@
 
             </section>
             <section class="tablaForo">
-                <form action="formulario">
-                    <label for="nombre"><input id="nombre" placeholder="Nombre del personaje" type="text"
-                            value="" /></label>
-                    <label for="clase"><input id="clase" placeholder="Clase del personaje" type="text"
-                            value="" /></label>
-                    <label for="raza"><input id="raza" placeholder="Raza del personaje" type="text" value="" /></label>
+                <form action="form" id="form">
+                    <label for="nombre"><input name= "nombre" id="nombre"  placeholder="Nombre del personaje" type="text"
+                            value="" required /></label>
+                    <label for="clase"><input name= "clase" id="clase"  placeholder="Clase del personaje" type="text"
+                            value="" required /></label>
+                    <label for="raza"><input name="raza"  id="raza"  placeholder="Raza del personaje" type="text" value="" required /></label>
 
-                    <label for="level"> <input id="lvl" placeholder="lvl" type="number"></label>
+                    <label for="level"> <input name= "level" id="lvl" placeholder="lvl" type="number" required></label>
                     <label for="especializacion"> </label>
-                    <select name="especializacion" id="especializacion">
+                    <select name="especializacion" id="especializacion" name= "especializacion">
                         <option value=""></option>
                         <option value="Dps">Dps</option>
                         <option value="Tank">Tank</option>
                         <option value="Healer">Healer</option>
+                        
                     </select>
+                    <button type="submit" id="btn-agregar">Agregar</button>
                 </form>
-
-                <button type="button" id="btn-agregar">Agregar</button>
                 <button type="button" id="btn-borrar" class="botonAdmin">Borrar</button>
                 <button type="button" id="btn-random" class="botonAdmin">AgregarRandom</button>
             </section>
-
-
-
 
         </article>
 
@@ -109,8 +108,7 @@
 
     </footer>
 
-
-
+   
 </body>
 
 </html>
