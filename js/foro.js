@@ -1,7 +1,7 @@
 "use strict";
 document.addEventListener("DOMContentLoaded", iniciarPagina)
 function iniciarPagina() {
-    let userTable = [
+    let userTable = [                                     //json
         {
             "nombrePersonaje": "BadMadafaca",
             "clase": "Warrior",
@@ -17,15 +17,16 @@ function iniciarPagina() {
             "lvl": 60,
         }
     ];
-    mostrarTabla();
+    mostrarTabla(); //llamo a la funcion mostrar tabla, para mostrar lo que tengo precargado.
+    
     function mostrarTabla() {
         console.log(userTable);
         let tabla = document.querySelector("#table");
-        tabla.innerHTML = '';
+        tabla.innerHTML = ''; //vacia lo que tenga adentro, para no renderizar multiples veces el mismo.
         for (let i = 0; i < userTable.length; i++) {
             if (userTable[i].lvl == 60) {
                 console.log(userTable[i].lvl = 60)
-                tabla.innerHTML +=
+                tabla.innerHTML +=      //recorro los objetos de mi arreglo, y creo una row y la data interna de cada row, con sus respectivos atributos, tomando los valores del JSON
                     `<tr class="tablaResaltada"><td>${userTable[i].nombrePersonaje}</td>
                             <td>${userTable[i].clase}</td>
                             <td>${userTable[i].raza}</td>
@@ -46,7 +47,7 @@ function iniciarPagina() {
     }
 
 
-  document.querySelector("#btn-agregar").addEventListener("click", agregar);
+    document.querySelector("#btn-agregar").addEventListener("click", agregar);
     function agregar(event) {
         event.preventDefault();
 
@@ -81,11 +82,6 @@ function iniciarPagina() {
         mostrarTabla();
 
     }*/
-
-
-
-
-
 
     document.querySelector("#btn-borrar").addEventListener("click", limpiarTodo);
     function limpiarTodo(event) {
@@ -144,17 +140,17 @@ function iniciarPagina() {
     }
 
 
-    let buttons_admin_rights = document.querySelectorAll(".botonAdmin");
+    let buttons_admin_rights = document.querySelectorAll(".botonAdmin"); //traigo un arreglo de botones
     let btn_send = document.querySelector("#validateUser");
     btn_send.addEventListener("click", validateUser);
 
     function validateUser(event) {
         event.preventDefault();
-        let user_input = document.querySelector("#adm").value;
+        let user_input = document.querySelector("#adm").value; //busco los inputs
         let pass_input = document.querySelector("#pass").value;
-        if ((user_input == 'admin') && (pass_input == 'admin')) {
+        if ((user_input == 'admin') && (pass_input == 'admin')) {  //si user y pass.values son admin entonces
             console.log(buttons_admin_rights);
-            for (let i = 0; i < buttons_admin_rights.length; i++) {
+            for (let i = 0; i < buttons_admin_rights.length; i++) {      //busco dentro de los arreglos de botones, recorriendolos y les saco la clase boton admin.
                 buttons_admin_rights[i].classList.remove('botonAdmin');
             }
 

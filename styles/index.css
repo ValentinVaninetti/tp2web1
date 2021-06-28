@@ -44,6 +44,7 @@
     height: 18px;
     grid-area: 2/1; 
 
+
 }
 .button-NavBar{
     background-color: darkorange;
@@ -137,12 +138,12 @@ th,tr,td {
 .tablaResaltada td{
     background-color: goldenrod;
 }
-.botonAdmin{
+/*.botonAdmin{
     display: none;
 }
 .botonesLocos {
     display: ruby;
-}
+}*/
 .imagen-murloc{
     margin-top: 20px;
     width: 10%;
@@ -426,11 +427,23 @@ th,tr,td {
 .tablaResaltada td{
     background-color: goldenrod;
 }
-.botonAdmin{
+/*.botonAdmin{
     display: none;
 }
 .botonesLocos {
     display: ruby;
+}*/
+.buttonrow-Borrar{
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    color: white;    
+}
+.buttonrow-Editar{
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    color:black;
 }
 
 }
