@@ -60,8 +60,7 @@ function iniciarPagina() {
                                     >Editar
                                     </button>
                             </td>
-                        </tr>`                       
-
+                        </tr>`                      
                 }              
             }
             agregarEventoBorrar();
@@ -123,17 +122,62 @@ function iniciarPagina() {
         })
             
     }
-    /*async function editar(event){
+    async function editar(event){        
         console.log("AA")
-        let id = event.target.getAttribute("data-editar");
+        let id = event.target.parentNode.getAttribute("data-objectID");        
         console.log(id);
+
+        let personajeSinModificar = getbyId(id);
+
+        let PersonajeModificado = {
+            nombrePersonaje: document.querySelector("#nombre").value,
+            clase: document.querySelector("#clase").value,
+            raza: document.querySelector("#raza").value,
+            especializacion: document.querySelector("#especializacion").value,
+            lvl: document.querySelector("#lvl").value
+        }
+
+        if(PersonajeModificado.nombrePersonaje === ''){
+            PersonajeModificado.nombrePersonaje = personajeSinModificar.nombrePersonaje
+        }
+        if(PersonajeModificado.clase === ''){
+            PersonajeModificado.clase = personajeSinModificar.clase
+        }
+        if(PersonajeModificado.raza === ''){
+            PersonajeModificado.raza = personajeSinModificar.clase
+        }
+        if(PersonajeModificado === ''){
+            PersonajeModificado.especializacion = personajeSinModificar.especializacion
+        }
+        if(PersonajeModificado === ''){
+            PersonajeModificado.lvl = personajeSinModificar.lvl
+        }
         try{
-            let edit = await fetch(`${url}/${id}`,{
-                'method' : 'PUT'
+            let put = await fetch(`${url}/${id}`,{
+                'method' : 'PUT',
+                'headers': {'Content-Type' : 'application/json'},
+                'body' : JSON.stringify(PersonajeModificado)
             })
         }
-    }*/
-
+        catch(e){
+            console.log(e)
+        }
+        mostrarTabla();
+    }
+    //hacer de otra manera, pero anda.
+    async function getbyId(id){           
+        try{
+            let obj = await fetch(url + '/' + id);
+            let json = await obj.json();
+            return json;
+        }
+        catch(e){
+            console.log(e)
+        }
+        
+    }
 }
+
+
  
        
