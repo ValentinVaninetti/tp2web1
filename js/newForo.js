@@ -9,9 +9,8 @@ function iniciarPagina() {
     botonAgregar.addEventListener("click", agregar);
 
     const tabla = document.querySelector("#table"); 
+        
 
-    let datosOriginales = []
-    
    obtenerDatos();   
     
    async function obtenerDatos(){
@@ -80,7 +79,7 @@ function iniciarPagina() {
                     }              
             }
             agregarEventoBorrar();
-            agregarEventoEditar(); 
+            agregarEventoCrear(); 
                   
         
     }
@@ -112,7 +111,7 @@ function iniciarPagina() {
     function agregarEventoBorrar(){        
         let botonesBorrar = document.querySelectorAll(".buttonrow-Borrar");         
         botonesBorrar.forEach(boton => {            
-            boton.addEventListener("click", borrar);            
+            boton.addEventListener("click", borrar);      
             
         });
     }  
@@ -136,28 +135,32 @@ function iniciarPagina() {
         obtenerDatos();                  
     }
     
-    function agregarEventoEditar(){
+    function agregarEventoCrear(){
         let botonesEditar = document.querySelectorAll(".buttonrow-Editar");
         botonesEditar.forEach(boton =>{
-            boton.addEventListener("click",editar);
+            boton.addEventListener("click", crearFormEditar);
         }) 
 
     }
 
     async function editar(event){
-
-        let id = event.target.parentNode.getAttribute("data-objectID"); 
+        event.preventDefault();
+        let id = event.target.getAttribute("data-atributton");
+       
+        let editable = document.querySelector ("#divEditable");
 
         let personajeSinModificar = getbyId(id);
+             
 
         let PersonajeModificado = {
 
-            nombrePersonaje: document.querySelector("#nombre").value,
-            clase: document.querySelector("#clase").value,
-            raza: document.querySelector("#raza").value,
-            especializacion: document.querySelector("#especializacion").value,
-            lvl: document.querySelector("#lvl").value
+            nombrePersonaje: document.querySelector("#nameEditable").value,
+            clase: document.querySelector("#claseEditable").value,
+            raza: document.querySelector("#razaEditable").value,
+            especializacion: document.querySelector("#especEditable").value,
+            lvl: document.querySelector("#lvlEditable").value
         }
+        console.log(PersonajeModificado);
 
         if(PersonajeModificado.nombrePersonaje === ''){
             PersonajeModificado.nombrePersonaje = personajeSinModificar.nombrePersonaje
@@ -185,6 +188,8 @@ function iniciarPagina() {
             console.log(e)
         }
         obtenerDatos();
+
+        editable.innerHTML = "";       
     }
 
     //se puede hacer de otra manera, pero anda.
@@ -197,6 +202,31 @@ function iniciarPagina() {
         catch(e){
             console.log(e)
         }               
+    }
+    function crearFormEditar(event) {
+        let id = event.target.parentNode.getAttribute("data-objectID"); 
+        let editable = document.querySelector ("#divEditable");        
+        editable.innerHTML += 
+        `<form >
+        <input type="text" id="nameEditable" placeholder="Nombre del personaje">
+        <input type="text" id="claseEditable" placeholder="Clase del personaje">
+        <input type="text" id="razaEditable" placeholder="Raza del personaje">
+        <input type="number" id="lvlEditable" placeholder="Level del personaje">
+        <select name="especializacion" id="especEditable" name= "especializacion">
+            <option value=""></option>
+            <option value="Dps">Dps</option>
+            <option value="Tank">Tank</option>
+            <option value="Healer">Healer</option>                                    
+        </select>
+        <button type="submit" id="btn-editado" data-atributton="${id}">
+            Editar
+        </button> 
+        </form>`;       
+        
+        let botonEditado = document.querySelector("#btn-editado");
+        botonEditado.addEventListener("click",editar);
+                                    
+
     }
 
     let botonFiltro = document.querySelector("#btn-filtrar");
@@ -216,8 +246,7 @@ function iniciarPagina() {
                 ||(filtro.toLowerCase()  == personaje.raza.toLowerCase())
                 ||(filtro.toLowerCase()  == personaje.especializacion.toLowerCase())){
                     console.log(personaje);
-                    datosFiltrados.push(personaje);                  
-                
+                    datosFiltrados.push(personaje);               
                 }
              if(!datosFiltrados.length == 0){
              mostrarTabla(datosFiltrados);
@@ -232,6 +261,4 @@ function iniciarPagina() {
     }    
 }
 
-
- 
        

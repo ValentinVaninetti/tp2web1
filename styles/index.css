@@ -186,7 +186,9 @@ p{
     color: black;
     font-weight: bold;
 }
-
+.inputsEditar{
+    display:none;
+}
 @media only screen and (min-width: 600px) { 
 .index, .recomendaciones, .historia, .foro {
     display: grid;
