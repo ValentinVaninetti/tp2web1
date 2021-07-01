@@ -27,7 +27,7 @@ function iniciarPagina() {
    }
     async function mostrarTabla(json){               
         tabla.innerHTML = "";        
-            for (const item of json){                
+            for (const item of json){                                           
                 let nombre = item.nombrePersonaje;
                 let clase = item.clase;
                 let raza = item.raza;
@@ -77,7 +77,7 @@ function iniciarPagina() {
                             </td>
                         </tr>`                      
                     }              
-            }
+            }           
             agregarEventoBorrar();
             agregarEventoCrear(); 
                   
@@ -127,7 +127,7 @@ function iniciarPagina() {
                 'method' : 'DELETE'
         }
         );
-
+        
         }catch(error){
                 console.log("error")
         }
@@ -207,7 +207,7 @@ function iniciarPagina() {
         let id = event.target.parentNode.getAttribute("data-objectID"); 
         let editable = document.querySelector ("#divEditable");        
         editable.innerHTML += 
-        `<form >
+        `<form class="formEditar">
         <input type="text" id="nameEditable" placeholder="Nombre del personaje">
         <input type="text" id="claseEditable" placeholder="Clase del personaje">
         <input type="text" id="razaEditable" placeholder="Raza del personaje">
@@ -220,11 +220,12 @@ function iniciarPagina() {
         </select>
         <button type="submit" id="btn-editado" data-atributton="${id}">
             Editar
-        </button> 
+        </button>         
         </form>`;       
         
         let botonEditado = document.querySelector("#btn-editado");
         botonEditado.addEventListener("click",editar);
+        
                                     
 
     }
@@ -237,10 +238,10 @@ function iniciarPagina() {
         try{
             let res = await fetch (url);
             let json = await res.json ();
-            console.log ("aber");
+
             tabla.innerHTML= "";
-            for (const personaje of json) {
-                console.log("x");
+
+            for (const personaje of json) {                
                 if ((filtro.toLowerCase() == personaje.nombrePersonaje.toLowerCase())
                 ||(filtro.toLowerCase()  == personaje.clase.toLowerCase())
                 ||(filtro.toLowerCase()  == personaje.raza.toLowerCase())
@@ -251,14 +252,62 @@ function iniciarPagina() {
              if(!datosFiltrados.length == 0){
              mostrarTabla(datosFiltrados);
                 }else{
-                    mostrarTabla(json)
+                    mostrarTabla(json)                    
                 }
             }
+            
         }
         catch (e){
             console.log ("error")
         }
-    }    
+    }
+
+        let botonReset = document.querySelector("#btn-reset");
+        botonReset.addEventListener("click" ,obtenerDatos);   
+    
+
+    let nombresRandom = ["PwnStar", "Thrall", "GoodMadafaca", "MugrisioMacri", "NuevedeOrco", "Invivo", "JuanRogue232", "Bocakpo22", "Alpachirlo", "abcDario"]
+    let clasesRandom = ["Druid", "Warrior", "Mage", "Paladin", "Death Knight", "Demon Hunter", "Warlock", "Priest", "Rogue", "Monk", "Shaman", "Hunter"]
+    let razasRandom = ["Orc", "Tauren", "Undead", "Troll", "Blood Elf", "Pandaren", "Goblin", "Human", "Night Elf", "Dwarf", "Draenei", "Gnome", "Wargen"]
+    let specRandom = ["Dps", "Tank", "healer"]    
+    document.querySelector("#btn-random").addEventListener("click", agregarRandom);
+
+    async function agregarRandom(event) {       
+        event.preventDefault();
+        let maxRandom = 3;
+        for (let i = 0; i < maxRandom; i++) {
+
+            let nombreR = Math.floor(Math.random() * nombresRandom.length);            
+            let claseR = Math.floor(Math.random() * clasesRandom.length);
+            let razaR = Math.floor(Math.random() * razasRandom.length);
+            let specR = Math.floor(Math.random() * specRandom.length);    
+
+            let personajeR = generarRandom(nombreR, claseR, razaR, specR)            
+            try{
+                let Post = await fetch(url,{
+                   'method' : 'POST',
+                   'headers': {'Content-Type' : 'application/json'},
+                   'body' : JSON.stringify(personajeR)
+                   });
+                       if (Post.ok) {
+                       console.log(r);
+                   }
+               }catch(error){
+                   console.log("e");            
+              } 
+              obtenerDatos();
+        }        
+
+    }
+    function generarRandom(nombreR, claseR, razaR, specR) { 
+        return {
+            "nombrePersonaje": nombresRandom[nombreR],
+            "clase": clasesRandom[claseR],
+            "raza": razasRandom[razaR],
+            "especializacion": specRandom[specR],
+            "lvl": ((Math.floor(Math.random() * 61)))
+        }
+    }       
 }
 
        

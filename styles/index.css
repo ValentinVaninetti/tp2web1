@@ -429,12 +429,6 @@ th,tr,td {
 .tablaResaltada td{
     background-color: goldenrod;
 }
-/*.botonAdmin{
-    display: none;
-}
-.botonesLocos {
-    display: ruby;
-}*/
 .buttonrow-Borrar{
     background-color: black;
     width: 100%;
@@ -447,7 +441,9 @@ th,tr,td {
     height: 100%;
     color:black;
 }
-
+.formEditar input{
+    background-color:   rgba(64, 197, 64, 0.603);
+}
 }
     
 
