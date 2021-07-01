@@ -9,7 +9,7 @@ function iniciarPagina() {
     botonAgregar.addEventListener("click", agregar);
 
     const tabla = document.querySelector("#table"); 
-        
+            
 
    obtenerDatos();   
     
@@ -79,8 +79,7 @@ function iniciarPagina() {
                     }              
             }           
             agregarEventoBorrar();
-            agregarEventoCrear(); 
-                  
+            agregarEventoCrear();                   
         
     }
 
@@ -262,8 +261,8 @@ function iniciarPagina() {
         }
     }
 
-        let botonReset = document.querySelector("#btn-reset");
-        botonReset.addEventListener("click" ,obtenerDatos);   
+    let botonReset = document.querySelector("#btn-reset");
+    botonReset.addEventListener("click" ,obtenerDatos);   
     
 
     let nombresRandom = ["PwnStar", "Thrall", "GoodMadafaca", "MugrisioMacri", "NuevedeOrco", "Invivo", "JuanRogue232", "Bocakpo22", "Alpachirlo", "abcDario"]
@@ -296,7 +295,7 @@ function iniciarPagina() {
                    console.log("e");            
               } 
               obtenerDatos();
-        }        
+        }    
 
     }
     function generarRandom(nombreR, claseR, razaR, specR) { 
